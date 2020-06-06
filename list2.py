@@ -28,13 +28,15 @@ __author__ = "Lori Henderson"
 
 
 def remove_adjacent(nums): #Need to modify function so it doesn't remove numbers at the end of the final test function
-    str = []
+    elements = []
     index = 0
 
-    for elements in nums:
-        if elements not in str:
-            str.append(elements)
-    return str
+    for index, element in enumerate(nums):
+        if index + 1 < len(nums) and nums[index + 1] != element:
+            elements.append(element)
+        elif index + 1 >= len(nums) and element != elements[-1]:
+            elements.append(element)
+    return elements
 
 
 # E. linear_merge

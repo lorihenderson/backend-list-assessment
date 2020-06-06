@@ -48,13 +48,13 @@ def match_ends(words):
 def front_x(words): #figure out how to fix function so merged lists don't include the words beginning with x at the end of the merged list
     x_list = []
     alphabetical_list = []
-
     for word in words:
         if word[0] == "x":
             x_list.insert(0, word)
-        else:
-            alphabetical_list.sort()
-    return x_list
+        elif word[0] != "x":
+            alphabetical_list.insert(0, word)
+    combined_list = x_list + sorted(alphabetical_list)
+    return combined_list
     
 
 
@@ -68,9 +68,9 @@ def front_x(words): #figure out how to fix function so merged lists don't includ
 
 
 def sort_last(tuples): #fix
-    pass
-
-
+    tuples.sort(key=lambda x: x[-1])
+    return tuples
+    
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
 def test(got, expected):
