@@ -50,11 +50,13 @@ def remove_adjacent(nums): #Need to modify function so it doesn't remove numbers
 # ascending sorted order.
 
 
-def linear_merge(list1, list2):
-    list3 = list1 + list2
-    sorted_list = list3.sort()
-    return list3
-
+def linear_merge(list1, list2): #DON"T USE SORTED OR SORT
+    sorted_list = []
+    while len(list1) and len(list2):
+        if list1[0] < list2[0]:
+            sorted_list.append(list1.pop(0))
+    sorted_list.extend(list1, list2)
+    return sorted_list
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
